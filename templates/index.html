@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}Home {% endblock %}
+{% block content %}
+<div id="newMoviesCarousel" class="carousel slide mb-5" data-bs-interval="false" data-bs-ride="carousel"
+     data-pause="hover">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <iframe
+                    height="550"
+                    src="{{ newMovies[0][6] }}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="w-100"
+            ></iframe>
+            <div class="bg-graphite text-center text-white py-4 px-5">
+                <a href="{{url_for('moviePage', movie=newMovies[0][0])}}" class="btn btn-warning px-5"><h1
+                        class="fw-bold">{{ newMovies[0][0]}}</h1></a>
+            </div>
+        </div>
+        {% for i in range(1,4) %}
+        <div class="carousel-item">
+            <iframe
+                    height="550"
+                    src="{{ newMovies[i][6] }}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="w-100"
+            ></iframe>
+            <div class="bg-graphite text-center text-white py-4 px-5">
+                <a href="{{url_for('moviePage', movie=newMovies[i][0])}}" class="btn btn-warning px-5"><h1
+                        class="fw-bold">{{ newMovies[i][0]}}</h1></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#newMoviesCarousel"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#newMoviesCarousel"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container text-white">
+    <h1 class="">New Arrivals</h1>
+    <div class="row">
+        {% for movie in newMovies %}
+        <div class="col-lg-3 col-md-6 col-12 py-3">
+            <a href="{{url_for('moviePage', movie=movie[0])}}" class="text-decoration-none">
+                <div class="card border-0 rounded">
+                    <img
+                            src="{{movie[7]}}"
+                            class="card-img-top"
+                            alt="..."
+                    />
+                    <div class="card-body bg-graphite rounded-bottom text-white">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5 class="card-title">{{movie[0]}}</h5>
+                            </div>
+                            <div class="col-3">
+                                <h6 class="">
+                                    <strong>{% if movie[-1]==0.0 %}N/A{% else %}{{ movie[-1] }}{% endif %}</strong>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container text-white">
+    <h1 class="">Top Rated Movies</h1>
+    <div class="row">
+        {% for movie in featuredMovies %}
+        <div class="col-lg-3 col-md-6 col-12 py-3">
+            <a href="{{url_for('moviePage', movie=movie[0])}}" class="text-decoration-none">
+                <div class="card border-0 rounded">
+                    <img
+                            src="{{movie[7]}}"
+                            class="card-img-top"
+                            alt="..."
+                    />
+                    <div class="card-body bg-graphite rounded-bottom text-white">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5 class="card-title">{{movie[0]}}</h5>
+                            </div>
+                            <div class="col-3">
+                                <h6 class="">
+                                    <strong>{% if movie[-1]==0.0 %}N/A{% else %}{{ movie[-1] }}{% endif %}</strong>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% if user.isLoggedIn %}
+<div class="container text-white">
+    <h1 class="">Recommended Movies</h1>
+    <div class="row">
+        {% for movie in recommendedMovies %}
+        <div class="col-lg-3 col-md-6 col-12 py-3">
+            <a href="{{url_for('moviePage', movie=movie[0])}}" class="text-decoration-none">
+                <div class="card border-0 rounded">
+                    <img
+                            src="{{movie[7]}}"
+                            class="card-img-top"
+                            alt="..."
+                    />
+                    <div class="card-body bg-graphite rounded-bottom text-white">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="card-title">{{movie[0]}}</h5>
+                            </div>
+                            <div class="col-4">
+                                <h6 class="">
+                                    <strong>{{ movie[1] }}</strong>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+body {
+  background-image: url("../static/img/movies-list-background.jpg");
+  /* background-image: url("https://wallpaperaccess.com/full/329605.jpg"); */
+}
+
+.bg-graphite {
+  background-color: #0b0b0b !important;
+}
+.bg-graphite-transparent-42 {
+  background-color: #00000070 !important;
+}
+.bg-graphite-transparent-74 {
+  background-color: #000000bd !important;
+}
+
+.btn-graphite {
+    color: #ffffff;
+    background-color: #0b0b0b;
+    border-color: #0b0b0b;
+}
+.btn-graphite:hover {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #000000;
+}

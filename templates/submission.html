@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Submission {% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="text-warning">Movie Submission Page</h1>
+    <form action="#" method="post" class="text-white p-3">
+        <div class="form-row">
+            <h6 class="fw-bold">Movie Title</h6>
+            <input type="text" name="movieName" class="w-100 mb-3">
+            <!--        <p class="fw-bold">Description</p>-->
+            <textarea type="textarea" name="movieDescription" class="w-100 mb-3"
+                      placeholder="Description"></textarea>
+            <h6 class="fw-bold">Rating</h6>
+            <div class="form-group text-white mb-3">
+                <select class="form-control" name="movieRating" id="movieRating">
+                    <option>G</option>
+                    <option>PG</option>
+                    <option>PG-13</option>
+                    <option>R</option>
+                    <option>Unrated</option>
+                </select>
+            </div>
+            <h6 class="fw-bold">Genre</h6>
+            <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="action" name="movieGenre"
+                               value="ACTION">
+                        <label class="form-check-label">Action</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="drama" name="movieGenre" value="DRAMA">
+                        <label class="form-check-label">Drama</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="horror" name="movieGenre" value="HORROR">
+                        <label class="form-check-label">Horror</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="comedy" name="movieGenre" value="COMEDY">
+                        <label class="form-check-label">Comedy</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="thriller" name="movieGenre" value="THRILLER">
+                        <label class="form-check-label">Thriller</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="sci-fi" name="movieGenre" value="SCI-FI">
+                        <label class="form-check-label">Sci-Fi</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="romance" name="movieGenre" value="ROMANCE">
+                        <label class="form-check-label">Romance</label>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="crime" name="movieGenre"
+                               value="CRIME">
+                        <label class="form-check-label">Crime</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="western" name="movieGenre" value="WESTERN">
+                        <label class="form-check-label">Western</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="adventure" name="movieGenre" value="ADVENTURE">
+                        <label class="form-check-label">Adventure</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="musical" name="movieGenre" value="MUSICAL">
+                        <label class="form-check-label">Musical</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="documentary" name="movieGenre"
+                               value="DOCUMENTARY">
+                        <label class="form-check-label">Documentary</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="fantasy" name="movieGenre" value="FANTASY">
+                        <label class="form-check-label">Fantasy</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="animated" name="movieGenre" value="ANIMATED">
+                        <label class="form-check-label">Animated</label>
+                    </div>
+                </div>
+            </div>
+            <h6 class="fw-bold">Production Company</h6>
+            <input type="text" name="movieCompany" class="w-100 mb-3">
+            <h6 class="fw-bold">Director</h6>
+            <input type="text" name="movieDirector" class="w-100 mb-3">
+            <h6 class="fw-bold">Trailer Link</h6>
+            <input type="text" name="movieLink" class="w-100 mb-3">
+            <h6 class="fw-bold">IMDB Movie Poster Link</h6>
+            <input type="text" name="moviePoster" class="w-100 mb-3">
+            <h6 class="fw-bold">Duration (Hours)</h6>
+            <input type="text" name="movieDurationHours" class="w-100 mb-3">
+            <h6 class="fw-bold">Duration (Minutes)</h6>
+            <input type="text" name="movieDurationMinutes" class="w-100 mb-3">
+            <h6 class="fw-bold">Year of Release</h6>
+            <input type="text" name="movieRelease" class="w-100 mb-3">
+            <input type="submit" value="Submit" class="btn btn-outline-warning">
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

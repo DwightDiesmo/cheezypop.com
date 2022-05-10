@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %}Movies {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="container bg-graphite-transparent-74 py-3">
+        <div class="card bg-graphite-transparent-42 p-2">
+            <div class="row py-3">
+                <div class="col-12">
+                    <form action="#" class="d-flex" method="post">
+                        <input
+                                class="form-control me-2"
+                                type="text"
+                                placeholder="Search"
+                                aria-label="Search"
+                                name="searchedMovie"
+                        />
+                        <button class="btn btn-outline-warning" type="submit" value="Submit">Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for movie in movieRecords %}
+            <div class="col-lg-3 col-md-6 col-12 py-3">
+                <a href="{{url_for('moviePage', movie=movie[0])}}" class="text-decoration-none">
+                    <div class="card border-0 rounded">
+                        <img
+                                src="{{movie[7]}}"
+                                class="card-img-top"
+                                alt="..."
+                        />
+                        <div class="card-body bg-graphite rounded-bottom text-white">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h5 class="card-title">{{movie[0]}}</h5>
+                                </div>
+                                <div class="col-3">
+                                    <h6 class="">
+                                        <strong>{% if movie[-1]==0.0 %}N/A{% else %}{{ movie[-1] }}{% endif %}</strong>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

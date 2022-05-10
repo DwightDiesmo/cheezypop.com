@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block title %} {{movie[0]}} {% endblock %} {% block
+content %}
+<div class="container bg-graphite-transparent-74 text-white p-4">
+    <div class="row py-5">
+        <div class="col-lg-3 col-md-4 col-sm-12 py-2">
+            <img
+                    src="{{ movie[7] }}"
+                    alt=""
+                    class="w-100 rounded"
+            />
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-12 py-2 text-center">
+            <iframe
+                    height="450"
+                    src="{{ movie[6] }}?&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="w-100"
+            ></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-10">
+                <h1 class="">
+                    <strong> {{ movie[0] }} </strong>
+                </h1>
+            </div>
+            <div class="col-2">
+                <h1 class="">
+                    <strong> {{ rating }} </strong>
+                </h1>
+            </div>
+        </div>
+        <h5 class="fw-light text-muted">{{ movie[10] }} / {{ movie[2] }} / {{movie[8]}}h {{movie[9]}}m</h5>
+        <h5 class="fw-light text-muted">{{movie[1]}}</h5>
+        <h5 class="fw-light pt-2 pb-4">
+            {{ movie[3] }}
+        </h5>
+        <h5 class="fw-light text-muted">
+            <strong class="fw-bold">Director </strong>{{ movie[5] }}
+        </h5>
+        <h5 class="fw-light text-muted">
+            <strong class="fw-bold">Production Company </strong>{{ movie[4] }}
+        </h5>
+        <!--        <h5 class="fw-light text-muted">-->
+        <!--            <strong class="fw-bold">Writers </strong>Matt Reeves / Peter Craig / Bob-->
+        <!--            Kane-->
+        <!--        </h5>-->
+        <!--        <h5 class="fw-light text-muted">-->
+        <!--            <strong class="fw-bold">Stars </strong>Robert Pattinson / Zoe Kravitz /-->
+        <!--            Paul Dano-->
+        <!--        </h5>-->
+    </div>
+    <div class="row pt-5">
+        <h3 class="text-white fw-bold">Reviews</h3>
+        {% for review in reviews %}
+        <div class="card bg-graphite py-4">
+            <h3 class="text-white fw-light"><strong class="fw-bold">@{{review[3]}}</strong> | {{review[2]}} CheezyPops</h3>
+<!--            <h6 class="text-secondary pb-2">February 28, 2022</h6>-->
+            <h5 class="text-white">
+                {{review[1]}}
+            </h5>
+        </div>
+        {% endfor %}
+        {% if user.isLoggedIn %}
+        <button type="button" class="btn btn-outline-warning btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Review
+        </button>
+        {% endif %}
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark text-capitalize" id="exampleModalLabel">Review {{movie[0]}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" method="post">
+                            <h6 class="fw-bold text-dark">CheezyPop Rating</h6>
+                            <input type="text" name="userRating" class="w-100 mb-3">
+                            <textarea type="textarea" name="userReview" class="w-100 mb-3"
+                                      placeholder="Review..."></textarea>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+<!--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
